@@ -27,8 +27,9 @@
                             @csrf
                             <input type="hidden" value="{{ $product->id }}" name="product_id">
                             <div class="form-group">
-                                <label for="product_quantity">How many pieces?</label>
-                                <input class="form-control" type="number" min='1' placeholder="1" name="product_quantity">
+                                <input type="hidden" value="{{ $product->price }}" name="price">
+                                <label for="quantity">How many pieces?</label>
+                                <input class="form-control" type="number" min='1' placeholder="1" name="quantity">
                             </div>
                             <br>
                             <input class="btn btn-warning" type="submit" value="Add To Cart">
@@ -56,6 +57,8 @@
                                                 <form action="{{ route('addproducttocart',$product->id) }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                                    <input type="hidden" value="{{ $product->price }}" name="price">
+                                                    <input type="hidden" value="1" name="quantity">
                                                     <br>
                                                     <input class="btn btn-warning" type="submit" value="Buy Now">
                                                 </form>
