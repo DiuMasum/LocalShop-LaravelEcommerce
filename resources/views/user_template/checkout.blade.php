@@ -5,8 +5,7 @@
     <div class="row">
         <div class="col-8">
             <div class="box_main">
-                <h3></h3>
-                Product will send At-
+                <h3>Product will send At-</h3>
                 <p>City/Village- {{$shipping_address->city_name}}</p>
                 <p>Postal Code- {{$shipping_address->postal_code}}</p>
                 <p>Phone Number- {{$shipping_address->phone_number}}</p>
@@ -15,7 +14,7 @@
 
         <div class="col-4">
             <div class="box_main">
-                Your final products are-
+                <h3>Your final products are-</h3>
                 <div class="table-responsive">
                     <table class="table">
                         <tr>
@@ -52,5 +51,14 @@
                 </div>
             </div>
         </div>
+
+        <form action="" method="POST">
+            @csrf
+            <input type="submit" value="cancel order" class="btn btn-danger mr-3">
+        </form>
+        <form action="{{ route('placeorder') }}" method="POST">
+            @csrf
+            <input type="submit" value="place order" class="btn btn-primary">
+        </form>
     </div>
 @endsection
